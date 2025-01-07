@@ -1,4 +1,4 @@
-package org.quipu.battleglound.util;
+package org.quipu.battleground.util;
 
 public enum RoomStatus {
     WAITING,

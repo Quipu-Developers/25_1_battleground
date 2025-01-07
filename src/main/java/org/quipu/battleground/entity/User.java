@@ -1,16 +1,14 @@
-package org.quipu.battleglound.entity;
+package org.quipu.battleground.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.quipu.battleglound.util.UserStatus;
+import org.quipu.battleground.util.UserStatus;
 
 import java.util.UUID;
 
-@Getter
-@Setter
-@Builder
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Entity
 public class User {
     @Id

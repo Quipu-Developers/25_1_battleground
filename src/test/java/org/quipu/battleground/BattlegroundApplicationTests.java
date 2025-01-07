@@ -1,10 +1,10 @@
-package org.quipu.battleglound;
+package org.quipu.battleground;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BattlegloundApplicationTests {
+class BattlegroundApplicationTests {
 
     @Test
     void contextLoads() {

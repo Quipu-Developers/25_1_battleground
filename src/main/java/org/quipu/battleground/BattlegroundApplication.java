@@ -1,13 +1,13 @@
-package org.quipu.battleglound;
+package org.quipu.battleground;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BattlegloundApplication {
+public class BattlegroundApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BattlegloundApplication.class, args);
+        SpringApplication.run(BattlegroundApplication.class, args);
     }
 
 }

@@ -1,6 +1,6 @@
-package org.quipu.battleglound.repository;
+package org.quipu.battleground.repository;
 
-import org.quipu.battleglound.entity.User;
+import org.quipu.battleground.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

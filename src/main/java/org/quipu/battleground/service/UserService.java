@@ -1,4 +1,4 @@
-package org.quipu.battleglound.service;
+package org.quipu.battleground.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
