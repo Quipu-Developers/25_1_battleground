@@ -17,9 +17,6 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int roomNumber;
-
     @Column(nullable = false)
     private String title;
 
@@ -38,7 +35,6 @@ public class Room {
     public RoomDto toDto() {
         return RoomDto.builder()
                 .id(this.id)
-                .roomNumber(this.roomNumber)
                 .title(this.title)
                 .hostId(this.hostId)
                 .maxUsers(this.maxUsers)

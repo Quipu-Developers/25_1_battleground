@@ -10,7 +10,6 @@ import java.util.UUID;
 @Builder
 public class RoomDto {
     private UUID id;
-    private int roomNumber;
     private String title;
     private UUID hostId;
     private int maxUsers;
