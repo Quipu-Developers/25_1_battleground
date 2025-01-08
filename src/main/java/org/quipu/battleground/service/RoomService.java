@@ -1,6 +1,7 @@
 package org.quipu.battleground.service;
 
 import lombok.RequiredArgsConstructor;
+import org.quipu.battleground.dto.ResponseDto;
 import org.quipu.battleground.dto.room.RoomCreateRequestDto;
 import org.quipu.battleground.dto.room.RoomDto;
 import org.quipu.battleground.entity.Room;
@@ -15,13 +16,15 @@ import java.util.List;
 public class RoomService {
     private final RoomRepository roomRepository;
 
-    public List<RoomDto> getRooms() {
-        return roomRepository.findAll().stream()
+    public ResponseDto<List<RoomDto>> getRooms() {
+        List<RoomDto> data = roomRepository.findAll().stream()
                 .map(Room::toDto)
                 .toList();
+
+        return new ResponseDto<>(200, "success", data);
     }
 
-    public RoomDto createRoom(RoomCreateRequestDto dto) {
+    public ResponseDto<RoomDto> createRoom(RoomCreateRequestDto dto) {
         Room newRoom = Room.builder()
                 .title(dto.getTitle())
                 .hostId(dto.getHostId())
@@ -32,6 +35,6 @@ public class RoomService {
 
         Room room = roomRepository.save(newRoom);
 
-        return room.toDto();
+        return new ResponseDto<>(201, "success", room.toDto());
     }
 }

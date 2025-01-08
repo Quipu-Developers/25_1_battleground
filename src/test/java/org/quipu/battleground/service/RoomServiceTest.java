@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.quipu.battleground.dto.ResponseDto;
 import org.quipu.battleground.dto.room.RoomCreateRequestDto;
 import org.quipu.battleground.dto.room.RoomDto;
 import org.quipu.battleground.entity.Room;
@@ -45,12 +46,13 @@ class RoomServiceTest {
     @DisplayName("방 조회 테스트")
     void getRooms() {
         // When
-        List<RoomDto> result = roomService.getRooms();
+        ResponseDto<List<RoomDto>> result = roomService.getRooms();
 
         // Then
         assertNotNull(result);
-        assertEquals(1, result.size());
-        assertEquals("Test Room", result.getFirst().getTitle());
+        assertEquals(200, result.getCode());
+        assertEquals(1, result.getData().size());
+        assertEquals("Test Room", result.getData().getFirst().getTitle());
     }
 
     @Test
@@ -75,11 +77,12 @@ class RoomServiceTest {
         Mockito.when(roomRepository.save(Mockito.any(Room.class))).thenReturn(mockRoom);
 
         // When
-        RoomDto result = roomService.createRoom(requestDto);
+        ResponseDto<RoomDto> result = roomService.createRoom(requestDto);
         System.out.println(result);
 
         // Then
         assertNotNull(result);
-        assertEquals("New Room", result.getTitle());
+        assertEquals(201, result.getCode());
+        assertEquals("New Room", result.getData().getTitle());
     }
 }
