@@ -1,6 +1,8 @@
 package org.quipu.battleground.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.*;
 import org.quipu.battleground.dto.room.RoomDto;
 import org.quipu.battleground.util.RoomStatus;
@@ -23,9 +25,13 @@ public class Room {
     @Column(nullable = false)
     private UUID hostId;
 
+    @Min(2)
+    @Max(4)
     @Column(nullable = false)
     private int maxUsers;
 
+    @Min(1)
+    @Max(4)
     @Column(nullable = false)
     private int currentUsers;
 

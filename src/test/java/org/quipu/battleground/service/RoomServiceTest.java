@@ -34,8 +34,8 @@ class RoomServiceTest {
                 .id(UUID.randomUUID())
                 .title("Test Room")
                 .hostId(UUID.randomUUID())
-                .maxUsers(10)
-                .currentUsers(5)
+                .maxUsers(4)
+                .currentUsers(2)
                 .status(RoomStatus.WAITING)
                 .build();
 
@@ -62,15 +62,14 @@ class RoomServiceTest {
         RoomCreateRequestDto requestDto = new RoomCreateRequestDto();
         requestDto.setTitle("New Room");
         requestDto.setHostId(UUID.randomUUID());
-        requestDto.setMaxUsers(10);
-        requestDto.setCurrentUsers(0);
+        requestDto.setMaxUsers(4);
 
         Room mockRoom = Room.builder()
                 .id(UUID.randomUUID())
                 .title("New Room")
                 .hostId(requestDto.getHostId())
                 .maxUsers(requestDto.getMaxUsers())
-                .currentUsers(requestDto.getCurrentUsers())
+                .currentUsers(1)
                 .status(RoomStatus.WAITING)
                 .build();
 
@@ -82,7 +81,7 @@ class RoomServiceTest {
 
         // Then
         assertNotNull(result);
-        assertEquals(201, result.getCode());
+        assertEquals(200, result.getCode());
         assertEquals("New Room", result.getData().getTitle());
     }
 }

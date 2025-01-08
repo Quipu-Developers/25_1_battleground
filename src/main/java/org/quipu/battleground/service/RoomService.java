@@ -25,15 +25,15 @@ public class RoomService {
     }
 
     public ResponseDto<RoomDto> createRoom(RoomCreateRequestDto dto) {
-        Room newRoom = Room.builder()
-                .title(dto.getTitle())
-                .hostId(dto.getHostId())
-                .maxUsers(dto.getMaxUsers())
-                .currentUsers(1)
-                .status(RoomStatus.WAITING)
-                .build();
-
-        Room room = roomRepository.save(newRoom);
+        Room room = roomRepository.save(
+                Room.builder()
+                        .title(dto.getTitle())
+                        .hostId(dto.getHostId())
+                        .maxUsers(dto.getMaxUsers())
+                        .currentUsers(1)
+                        .status(RoomStatus.WAITING)
+                        .build()
+        );
 
         return new ResponseDto<>(200, "success", room.toDto());
     }
