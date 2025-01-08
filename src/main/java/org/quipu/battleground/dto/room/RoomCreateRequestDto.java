@@ -9,6 +9,5 @@ public class RoomCreateRequestDto {
     private String title;
     private UUID hostId;
     private int maxUsers;
-    private int currentUsers;
 }
 

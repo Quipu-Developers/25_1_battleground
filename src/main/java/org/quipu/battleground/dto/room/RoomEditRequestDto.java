@@ -6,5 +6,4 @@ import lombok.Data;
 public class RoomEditRequestDto {
     private String title;
     private int maxUsers;
-    private int currentUsers;
 }

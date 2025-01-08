@@ -34,7 +34,7 @@ public class RoomController {
     @PostMapping("/")
     @Operation(summary = "새로운 방 생성")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "방 생성 성공")
+            @ApiResponse(responseCode = "200", description = "방 생성 성공")
     })
     public ResponseDto<RoomDto> createRoom(@RequestBody RoomCreateRequestDto dto) {
         return roomService.createRoom(dto);

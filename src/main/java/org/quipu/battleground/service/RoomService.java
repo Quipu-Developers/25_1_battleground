@@ -29,12 +29,12 @@ public class RoomService {
                 .title(dto.getTitle())
                 .hostId(dto.getHostId())
                 .maxUsers(dto.getMaxUsers())
-                .currentUsers(dto.getCurrentUsers())
+                .currentUsers(1)
                 .status(RoomStatus.WAITING)
                 .build();
 
         Room room = roomRepository.save(newRoom);
 
-        return new ResponseDto<>(201, "success", room.toDto());
+        return new ResponseDto<>(200, "success", room.toDto());
     }
 }
